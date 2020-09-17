@@ -1,0 +1,207 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  
+  height: 1000px;
+  width:250px;
+  background-color: #252526;
+  float:left;
+  margin:5px;
+}
+
+.sidenav a {
+  padding: 0px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  width : 250px;
+  height: 46px;
+  margin:5px;
+}
+@font-face {
+  font-family: "My Font";
+  src: url("./FONT/NIXGONFONTS\ M\ 2.0.TTF");
+}
+
+a{font-family: "My Font", serif;}
+p{font-family: "My Font", serif;}
+p{font-size: 30px;}
+a{font-size: 30px;}
+h2{font-size: 40px;}
+h2{font-family: "My Font", serif;}
+
+#main {
+  width:1000px;
+  height:1000px;
+  float:left;
+  margin:0px;
+}
+
+#side_content_box{
+display: inline;
+background-color:#1e1e1e;
+margin:0px;
+}
+#body {
+  background-color:#1e1e1e;
+  margin:0;
+}/*-------------------------------------------------robot1-----------------------------------------------------------------*/
+
+#forcenter{
+  display : flex;
+  align-items: center;
+}
+#motorbox{
+  display : flex;
+  align-items: center;
+}
+
+#powerbutton {
+  width:300px;
+  height:200px;
+  background-color:  gray;
+  border: none;
+  color:#fff;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer; 
+  border-radius: 5px;
+}
+
+#settingbutton {
+  width:170px;
+  height:60px;
+  background-color:  gray;
+  border: none;
+  color:#fff;
+  cursor: pointer;  
+  border-radius: 5px;
+  font-weight : bold; 
+  font-size : 25px;
+  text-align: center;
+}
+
+#servoSlider1{
+  width : 300px;
+}
+
+#servoSlider2{
+  width : 300px;
+}
+
+/* -----------------------------------submenu---------------------------------- */
+#test{
+  display : flex;
+  align-items: center;
+  }
+
+  #button_sub{ 
+    width:300px;
+    height:300px;
+    background-color:  gray;
+    border: none;
+    color:#fff;
+    text-align: center;
+    font-size: 100px;
+    cursor: pointer;    
+    border-radius: 5px;
+    font-weight : bold; 
+  }
+
+  /*  
+  #speed{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div#myboxsub {
+
+    width:500px;
+    height:250px;
+    border : 5px solid gray;
+    background-color:#f1f1f1;
+    margin : 10px 10px 10px 300px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div#boxnamesub {
+
+    width:500px;
+    height:100px;
+    background-color:  gray;
+    border : 5px solid gray;
+    margin : 10px 10px 10px 300px;
+    color : #fff; 
+    text-align : center; 
+    font-weight : bold;  
+  }*/
+
+ /* -------------------------------developer----------------------------------*/
+  #headboxdeveloper{
+    width:700px;
+    height:50px;
+    background-color:  gray;
+    border : 5px solid gray;
+    margin : 5px;
+    color : #fff; 
+    text-align : center; 
+    font-weight : bold;  
+  }
+
+  #boxdeveloper{
+    width:700px;
+    height:700px;
+    border : 5px solid gray;
+    background-color:#f1f1f1;
+    margin : 5px;
+    padding : 35px;
+  }
+
+  #buttondeveloper {
+    width:200px;
+    height:200px;
+    background-color:  gray;
+    border: none;
+    color:#fff;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer; 
+    border-radius: 5px;
+  }
+
+  #textboxdeveloper{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #textarea{
+    width : 300px;
+    height : 300px;
+  }
+
+/* -----------------------------버튼 효과 ------------------------------ */
+  #button_sub:hover{
+    box-shadow:300px 0 0 0 rgba(0,0,0,0.5) inset;
+  }
+
+  #powerbutton:hover{
+    box-shadow:400px 0 0 0 rgba(0,0,0,0.5) inset;
+  }
+
+  #buttondeveloper:hover{
+    box-shadow:200px 0 0 0 rgba(0,0,0,0.5) inset; 
+  }
+  #settingbutton:hover{
+    box-shadow:200px 0 0 0 rgba(0,0,0,0.5) inset;
+  }
+
+
+

@@ -1,0 +1,83 @@
+
+
+<!DOCTYPE html>
+<html>
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script>if (window.module) module = window.module;</script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+    <style type="text/css">@import url("style.css");</style>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+  <style>
+  </style>
+</head>
+<body id="body">
+
+<div class="sidenav">
+  <a href="../index.html">HOME</a>
+  <a href="./submenu.html">레시피 설정</a>
+  <a href="./robot1.html">로봇1번</a>
+  <a href="./developer.html">개발자 창</a>
+
+</div>
+
+<div id="main">
+  <div id = "side_content_box"></div>
+
+  <div id = "headboxdeveloper"> <p style= "color: #ffffff">로봇1번 활성화</p> </div>
+ 
+  <div id = "boxdeveloper">
+    <button type = "button" id="buttondeveloper" onclick="button1_click();"> <p style = "font-weight : bold; font-size : 25px;">POWER ON</p></button>
+    <button type = "button" id="buttondeveloper" onclick="button2_click();"> <p style = "font-weight : bold; font-size : 25px;">POWER OFF </p></button>
+    <button type = "button" id="buttondeveloper" onclick="button3_click();"> <p style = "font-weight : bold; font-size : 22px;">시리얼 데이터 읽기</p></button>
+    <div style ='width : 500px; height : 35px; visibility : hidden;'><button type = "button"> 띄어쓰기 </button></div>
+  
+    <div id = "textboxdeveloper">
+      <textarea matInput placeholder="Description" rows="10" cols="45" id="chat"></textarea>
+      <div style = 'visibility : hidden; width : 25px;'><button type = "button"> 띄어쓰기 </button></div>     
+      <textarea matInput placeholder="로봇의 데이터를 읽습니다." rows="10" cols="45" id="chatt"></textarea>    
+    </div>
+
+   <input type="text" id="user"><input type="button" value="입력" onclick="myOnClick()">
+  </div>
+
+<script>
+  var text = document.getElementById('text');
+      var socket = io.connect('http://localhost:5300');
+      
+      socket.on('rec', function (sendData) {
+        //document.getElementById("chat").value='';
+          console.log(sendData)
+          $('#chatt').append(sendData);
+          
+      });
+      socket.on('recMsg', function (data) {
+          console.log(data)
+          $('#chat').append(data.comment);
+          socket.on('recMsg', function (data) {
+        });
+      });
+      function myOnClick() {
+          socket.emit('msg', {comment: $('#user').val()});
+          $('#user').val('');
+      }
+      function button1_click() {
+          socket.emit('msg1');
+          console.log("poweron");
+          }
+      function button2_click() {
+          socket.emit('msg2');
+          console.log("poweroff");
+          }
+      function button3_click() {
+          socket.emit('msg3');
+          console.log("serialdata");
+          }
+    
+</script>
+   
+</body>
+</html> 

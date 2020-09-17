@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+<style>
+</style>
+</head>
+<body id="body">
+
+<div class="sidenav">
+  <a href="../index.html">HOME</a>
+  <a href="./submenu.html">레시피 설정</a>
+  <a href="./robot1.html">로봇1번</a> 
+  <a href="./developer.html">개발자 창</a>
+
+</div>
+
+<div id = "boxnamesub">
+  <p style = " font-size : 30px;  line-height : 10px;"> 온도 조절</p>
+  <p style = " font-size : 20px;"> (온도는 9단계로 이루어져 있습니다.)</p> 
+</div>
+
+<div id = "myboxsub">
+  <div><button type = "button" id = "button_1" onclick="myOnClick1()"> <p> 최고 온도</p>  </button></div>
+  <div style = 'visibility : hidden;'><button type = "button" id = "button"> dxxf </button></div>
+  <div><button type = "button" id = "button_1" onclick="myOnClick2()"> <p> 감온 </p></button></div>
+</div>
+</div>
+<script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+<script>
+  /////////////////주소 변경하세요/////////////////////////
+  var socket = io.connect('http://localhost:5300');
+
+  function myOnClick1() {
+      socket.emit('temadd');
+      console.log("on");
+  }
+  function myOnClick2() {
+      socket.emit('temsub');
+      console.log("off");
+  }
+  </script>
+</body>
+</html> 

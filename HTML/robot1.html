@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script>if (window.module) module = window.module;</script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+    <style type="text/css">@import url("style.css");</style>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+  <style>
+  </style>
+</head>
+<body id="body">
+
+<div class="sidenav">
+  <a href="../index.html">HOME</a>
+  <a href="./submenu.html">레시피 설정</a>
+  <a href="./robot1.html">로봇1번</a>
+  <a href="./developer.html">개발자 창</a>
+
+</div>
+
+<div id="main">
+  
+  <p style= "color: #ffffff; font-weight : bold; font-size : 40px;">로봇1번 활성화</p> 
+  
+  <hr style="border: solid 2px gray;"> 
+
+  <div id = "forcenter">
+    <button type = "button" id="powerbutton" onclick="button1_click();"> <p style = "font-weight : bold; font-size : 35px;">POWER ON</p></button>
+    <div style = 'visibility : hidden; width : 30px;'><button type = "button"> 띄어쓰기 </button></div>
+    <button type = "button" id="powerbutton" onclick="button2_click();"> <p style = "font-weight : bold; font-size : 35px;">POWER OFF </p></button>
+  </div>
+  
+  <div style ='width : 500px; height : 35px; visibility : hidden;'><button type = "button"> 띄어쓰기 </button></div>
+ 
+  <div id = "motorbox">
+    <P style = "color : white;  font-weight : bold; font-size : 30px;">모터속도 : <span id="servoPos1"></span> 단계</P>
+    <div style = ' width : 50px; visibility : hidden;'><button type = "button"> 띄어쓰기 </button></div>
+    <button type="button" id="settingbutton" onclick="button4_click();"><p >설정</p></button>
+  </div>
+
+  <input type="range" min="1" max="5" class="slider1" id="servoSlider1" onchange="servo1(this.value);">
+    
+
+
+<script>
+  var text = document.getElementById('text');
+      var socket = io.connect('http://localhost:5300');
+      
+      function button1_click() {
+          socket.emit('msg1');
+          console.log("poweron");
+          }
+      function button2_click() {
+          socket.emit('msg2');
+          console.log("poweroff");
+          }
+      function button3_click() {
+          socket.emit('msg3');
+          console.log("serialdata");
+          }
+        
+      function button4_click() {
+        result = Number(slider1.value) - 1;
+        console.log(typeof result);
+        socket.emit('msg4', result);
+        console.log("motorspeed1");
+        
+          }
+          
+      var slider1 = document.getElementById("servoSlider1");
+      var servoP = document.getElementById("servoPos1"); servoP.innerHTML = slider1.value;
+          slider1.oninput = function() { slider1.value = this.value; servoP.innerHTML = this.value; }
+              $.ajaxSetup({timeout:1000}); function servo1(pos1) {
+              $.get("/servo1?value=" + pos1 + "&"); {Connection: close};}
+</script>
+   
+</body>
+
+</html> 
